@@ -1,6 +1,8 @@
 package com.maveric.base;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -11,14 +13,15 @@ public class TestBasePage {
 	@BeforeMethod
 	public void intilisation() {
 		gm= GenericMethod.getObj();
-		
-		gm.launchBrowser("chrome", "http://www.amazon.com");
-	}
+		gm.launchBrowser("chrome", "https://www.linkedin.com/");
+		gm.getdriver().manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
+		}
 	
 	
 	@AfterMethod
 	public void shut_browser(Method method) {
 		
-		gm.getdriver().close();
+	//	gm.getdriver().close();
 	}
+	
 }

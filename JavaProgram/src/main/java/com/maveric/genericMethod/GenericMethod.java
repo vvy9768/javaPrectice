@@ -49,6 +49,7 @@ public class GenericMethod {
 	//=================getDriver ==================//SSS
 	  public WebDriver getdriver() {
 			return driver;
+	    
 		}
 	
 	public void launchBrowser(String browserName,String url) {
@@ -92,18 +93,29 @@ public class GenericMethod {
          Assert.assertEquals(Actualstatus, true);
         //===============softAssert========================//
          new SoftAssert().assertEquals(Actualstatus, false);
+         
 	}
-	public void varify_the_Enable(String pathName, String path, Method mth) {
+	public void varify_the_Enable(String pathName, String path,String mth ) {
 		
 	       boolean Actualstatus = getElement(pathName, path).isEnabled();
-	       takeSnapshots(Actualstatus, mth);
+	    
 	         Assert.assertEquals(Actualstatus, true);
-	       
+	         if(Actualstatus)
+	       System.out.println(mth+" is Enabled ");
+	         else 
+	        	System.out.println(mth+" is disabled"); 
 	         
 		}
-	public void varify_the_Selected(String pathName, String path) {
+	
+	
+	public void varify_the_Selected(String pathName, String path , String mth) {
 	       boolean Actualstatus = getElement(pathName, path).isSelected();
 	         Assert.assertEquals(Actualstatus, true);
+	         if(Actualstatus)
+	  	       System.out.println(mth+" is Selected ");
+	  	         else 
+	  	        	System.out.println(mth+" is Unselected"); 
+	  	         
 		}
 	
 	public void sendKeys(String pathName,String path,String sendText ) {
@@ -125,7 +137,7 @@ public class GenericMethod {
 		}	
 	}
 
-	public void windowHandleOnlyone(String titles) {
+	public void windowHandleOnlyOne(String titles) {
 		Set<String> wndw = driver.getWindowHandles();
 		for (String window : wndw) {
 			driver.switchTo().window(window);
@@ -326,4 +338,5 @@ String FileName;
 		if(status==false)
 			takeSnapshot(mathodName);	
 	}
+	
 }

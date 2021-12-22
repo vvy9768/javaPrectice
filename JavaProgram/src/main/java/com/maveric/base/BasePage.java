@@ -4,7 +4,11 @@ import com.maveric.genericMethod.GenericMethod;
 
 public class BasePage {
 	protected GenericMethod gm;
-	public void Intilization() {
-	gm=  GenericMethod.getObj();
+	public  BasePage() {
+		gm=GenericMethod.getObj();
 	}
+	   
+	public void clickOn_signOut_Bt() {
+		gm.click("xpath", "//a[contains(text(),'SignOut')]");
+		}
 }

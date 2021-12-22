@@ -21,6 +21,7 @@ public class ReverseStringWithSplChr {
 				strChr[l]=temp;
 				i++;
 				l--;
+				
 			}
 			else if(!isAlphabatic1(strChr[i])) {
 				i++;
@@ -86,18 +87,85 @@ public class ReverseStringWithSplChr {
 			System.out.print(chr);
 		}
 	}
-	@Test
-	public void dublicate_string() {
+	
+	
+	
+	
+	public void  reversrOfWord() {
+		String str ="I love My India ";
+        String [] strArr=str.split(" ");
+        for (String ss:strArr) {	   
+        for (int J = ss.length()-1;J>=0; J--) {
+	     char chrArr[]=ss.toCharArray();
+			System.out.print(chrArr[J]);
+		}System.out.print(" ");
+        }
+       
+        
+	
+	}
+	public void Remove_dublicate_string() {
 		
 		String [] strArr= {"rahul","mahesh", "Rahul","rahul","suresh"};
 		ArrayList<String> oldList= new ArrayList<String>(Arrays.asList(strArr));
 		List<String> newList= new ArrayList<String>();
 		
 		for(String str :oldList){
-			if(oldList.equals(str)) {
+			if(!newList.contains(str)) {
 			newList.add(str);
 			}
 		}
 		System.out.println(newList);
 	}
+	@Test
+	public  String dublicate_charfrom_String() {
+		String str= "VirendraKumarYadav";
+		String lowStr  =str.toLowerCase();
+		
+		       char chrArr[]=lowStr.toCharArray();
+		       int index = 0;
+		       
+		        // Traverse through all characters
+		        for (int i = 0; i <chrArr.length; i++)
+		        {
+		 
+		            // Check if str[i] is present before it
+		            int j;
+		            for (j = 0; j < i; j++)
+		            {
+		                if (chrArr[i] == chrArr[j])
+		                {
+		                    break;
+		                }
+		            }
+		 
+		            // If not present, then add it to
+		            // result.
+		            if (j == i)
+		            {
+		            	chrArr[index++] = chrArr[i];
+		            }
+		        }
+		       
+
+		        return String.valueOf(Arrays.copyOf(chrArr, index));
+		       		    }
+	
+	
+
+
+	
+	
+	public void trangle() {
+		for(int i=0; i<5; i++) {
+			for (int j = 4; j >=i; j--) {
+				System.out.print(" ");
+			}
+			for(int k=0;k<=i;k++) {
+				System.out.print("*"+" ");
+			}
+			System.out.println();
+		}
+	}
+	
 }
